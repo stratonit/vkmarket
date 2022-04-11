@@ -1,11 +1,11 @@
 {
-  "name": "stratonit/vkmarket",
+  "name": "asil/vkmarket",
   "description": "The PHP library for work with VK Market API",
   "keywords": ["vk", "vk.com", "api", "market"],
   "license": "MIT",
   "authors": [
     {
-      "name": "Wanted"
+      "name": "Anton Silischev"
     }
   ],
   "require": {
@@ -13,7 +13,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Air\\VkMarket\\": "src/"
+      "Asil\\VkMarket\\": "src/"
     }
   }
 }

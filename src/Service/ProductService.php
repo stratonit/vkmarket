@@ -41,10 +41,12 @@ class ProductService extends BaseService
         $arr = [
             'access_token' => $this->connection->getAccessToken(),
             'owner_id' => '-' . $this->connection->getGroupId(),
+            'sku' => $product->getSku(),
             'item_id' => $product->getVkItemId(),
             'name' => $product->getName(),
             'description' => $product->getDescription(),
-            'price' => $product->getPrice() / 100,
+            'price' => $product->getPrice(),
+            'old_price' => $product->getOldPrice(),
             'category_id' => $product->getCategoryId(),
             'deleted' => $product->getAvailability(),
             'main_photo_id' => ((!$photo || !sizeof($photo->getMainPhotoParams())) && $product->getVkItemMainPhotoId() !== null) ?

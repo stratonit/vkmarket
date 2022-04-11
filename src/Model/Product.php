@@ -32,12 +32,12 @@ class Product
      * @param string $price        цена товара
      * @param boolean $deleted      статус товара (1 — товар не доступен, 0 — товар доступен)
      */
-    public $sky;
+    public $sku;
     public $old_price;
     public function __construct($name, $description, $categoryId, $price, $deleted = false)
     {
         $this->name = $name;
-        $this->sky = '';
+        $this->sku = '';
         $this->description = $description;
         $this->categoryId = $categoryId;
         $this->price = $price;

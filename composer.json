@@ -3,6 +3,7 @@
   "description": "The PHP library for work with VK Market API",
   "keywords": ["vk", "vk.com", "api", "market"],
   "license": "MIT",
+  "version": "0.1",
   "authors": [
     {
       "name": "Anton Silischev"
@@ -15,5 +16,6 @@
     "psr-4": {
       "Asil\\VkMarket\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "dev"
 }

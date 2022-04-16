@@ -9,6 +9,24 @@ use Asil\VkMarket\VkConnect;
 
 class ProductService extends BaseService
 {
+    public function searchProductByCode($code)
+    {
+        $arr = [
+            'access_token' => $this->connection->getAccessToken(),
+            'owner_id' => '-' . $this->connection->getGroupId(),
+            'q' => $code,
+            'offset' => 0,
+            'count' => 1,
+            'extended' => 1,
+            'status' => '0,2',
+            'v' => VkConnect::API_VERSION,
+        ];
+
+        $content = $this->connection->getRequest('market.search', $arr);
+
+        return $content['response'];
+    }
+
     public function addProduct(Product $product, Photo $photo)
     {
         $photoService = new PhotoService($this->connection);

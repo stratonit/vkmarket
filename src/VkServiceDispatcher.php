@@ -26,6 +26,10 @@ class VkServiceDispatcher
         $this->albumService = new AlbumService($connection);
     }
 
+    public function searchProductByCode($code) {
+        return $this->productService->searchProductByCode($code);
+    }
+
     /**
      * Возвращает товар по id
      * @param int $id id товара в VK
@@ -159,12 +163,16 @@ class VkServiceDispatcher
      */
     public function addProductToAlbum(array $albumIds, $itemId)
     {
-        return $this->albumService->addProductToAlbum($albumIds, $itemId);
+        if(count($albumIds) > 0) {
+            return $this->albumService->addProductToAlbum($albumIds, $itemId);
+        }
     }
 
     public function removeProductFromAlbum(array $albumIds, $itemId)
     {
-        return $this->albumService->removeProductFromAlbum($albumIds, $itemId);
+        if(count($albumIds) > 0) {
+            return $this->albumService->removeProductFromAlbum($albumIds, $itemId);
+        }
     }
 
     /**

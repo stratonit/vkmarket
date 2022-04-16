@@ -54,6 +54,20 @@ class AlbumService extends BaseService
 
         return (boolean)$content['response'];
     }
+    public function removeProductFromAlbum(array $albumIds, $itemId)
+    {
+        $arr = [
+            'access_token' => $this->connection->getAccessToken(),
+            'owner_id' => '-' . $this->connection->getGroupId(),
+            'item_id' => $itemId,
+            'album_ids' => $albumIds,
+            'v' => VkConnect::API_VERSION,
+        ];
+
+        $content = $this->connection->getRequest('market.removeFromAlbum', $arr);
+
+        return (boolean)$content['response'];
+    }
 
     public function getAlbumById($albumId)
     {

@@ -108,6 +108,9 @@ class VkServiceDispatcher
         $product = $this->productService->getProductById($id);
         if ($product) {
             $product->setAvailability(true);
+            $product->setSku($product->getSku());
+            $product->setPrice($product->getPrice() / 100);
+            $product->setOldPrice($product->getOldPrice() / 100);
             return $this->editProduct($product);
         }
 
@@ -127,6 +130,9 @@ class VkServiceDispatcher
         $product = $this->productService->getProductById($id);
         if ($product) {
             $product->setAvailability(false);
+            $product->setSku($product->getSku());
+            $product->setPrice($product->getPrice() / 100);
+            $product->setOldPrice($product->getOldPrice() / 100);
             return $this->editProduct($product);
         }
 
@@ -154,6 +160,11 @@ class VkServiceDispatcher
     public function addProductToAlbum(array $albumIds, $itemId)
     {
         return $this->albumService->addProductToAlbum($albumIds, $itemId);
+    }
+
+    public function removeProductFromAlbum(array $albumIds, $itemId)
+    {
+        return $this->albumService->removeProductFromAlbum($albumIds, $itemId);
     }
 
     /**

@@ -37,11 +37,11 @@ class Product
     public function __construct($name, $description, $categoryId, $price, $deleted = false)
     {
         $this->name = $name;
-        $this->sku = '';
+//        $this->sku = '';
         $this->description = $description;
         $this->categoryId = $categoryId;
         $this->price = $price;
-        $this->old_price = 0.01;
+        $this->old_price = $price + 1;
         $this->deleted = $deleted;
 
     }

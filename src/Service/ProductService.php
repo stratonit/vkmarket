@@ -110,6 +110,7 @@ class ProductService extends BaseService
                     $content['response']['items'][0]['price']['amount'], $content['response']['items'][0]['availability']);
 
                 $product->setVkItemId($content['response']['items'][0]['id']);
+                $product->setSku($content['response']['items'][0]['sku']);
 
                 if (sizeof($content['response']['items'][0]['photos'])) {
                     foreach ($content['response']['items'][0]['photos'] as $key => $vkPhoto) {

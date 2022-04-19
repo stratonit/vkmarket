@@ -109,6 +109,7 @@ class VkServiceDispatcher
      */
     public function deactivateProduct($id)
     {
+
         $product = $this->productService->getProductById($id);
         if ($product) {
             $product->setAvailability(true);
